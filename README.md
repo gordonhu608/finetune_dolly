@@ -23,7 +23,7 @@ To run on V100 instances with 32GB of GPU memory (ex: `p3dn.24xlarge`, note that
   bf16=False,
   ...
   ```
-- Open the `train_dolly` notebook in the Repo (which is the `train_dolly.py` file in the Github `dolly` repo). Set the `num_gpus` widget in `train_dolly` to the number of GPUs in your instance, typically 8. There will be three popup window (widget) on the top of the screen when you are in `train_dolly` notebook. You want to fill in the number 8 in the num_gpus window. You don't need to set the `dbfs_output_root` and `local_training_root` widget because the code will detect if these are Null, then they are set by default to "dolly_training".
+- Open the `train_dolly` notebook in the Repo (which is the `train_dolly.py` file in the Github `dolly` repo). Set the `num_gpus` widget in `train_dolly` to the number of GPUs in your instance, typically 8. There will be three popup window (widget) on the top of the screen when you are in `train_dolly` notebook. You want to fill in the number 8 in the `num_gpus` window. You don't need to set the `dbfs_output_root` and `local_training_root` widget because the code will detect if these are Null, then they are set by default to `"dolly_training"`.
 
 - Attach the notebook to your GPU cluster, that is, over the top right of your screen, select your cluster. 
 - Run all cells.  When training finishes, the notebook will save the model under `/dbfs/dolly_training` by default. It takes around 2 minutes to download and install all the dependency before actually start training. 
@@ -40,9 +40,14 @@ To run on V100 instances with 32GB of GPU memory (ex: `p3dn.24xlarge`, note that
     --per-device-eval-batch-size 8 \
     --lr 1e-5
   ```
- - Don't forget that You can click the cell output to scroll inside the output cell. Here is the details of the output for the above code:
+#### Don't forget that You can click the cell output to scroll inside the output cell. Here is the details of the output for the above code:
+
 - it first load the tokenizer and the model and takes around 5 minutes to download the "pytorch_model.bin"
 - After initilizing the optimizer, configs and hyperparamters are printed 
+
+  ![start](assets/start_v100.png)
+- Here is how the loss is updating, this single cell block takes 27.89 minutes to run about 0.1 epoch before I terminated the process.
+  ![loss](assets/loss_v100.png)
 
   
  ### A100 GPUs
