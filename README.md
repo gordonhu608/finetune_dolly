@@ -40,7 +40,7 @@ To run on V100 instances with 32GB of GPU memory (ex: `p3dn.24xlarge`, note that
     --per-device-eval-batch-size 8 \
     --lr 1e-5
   ```
-#### Don't forget that You can click the cell output to scroll inside the output cell. Here is the details of the output for the above code:
+#### Don't forget that You can click the cell output to scroll inside the output cell. Here is the details of the output for the above code (If you also have the Py4JNetworkError, it's probably caused by low spark.driver.memory and spark.executor.memory just from my personal perspective. This error doesn't prevent the code running):
 
 - it first load the tokenizer and the model and takes around 5 minutes to download the "pytorch_model.bin"
 - After initilizing the optimizer, configs and hyperparamters are printed 
