@@ -23,6 +23,8 @@ Start a `12.2 LTS ML (includes Apache Spark 3.3.2, GPU, Scala 2.12)` single-node
   bf16=False,
   ...
   ```
+#### Using the `train_dolly` notebook 
+
 - Open the `train_dolly` notebook in the Repo (which is the `train_dolly.py` file in the Github `dolly` repo). Set the `num_gpus` widget in `train_dolly` to the number of GPUs in your instance, typically 8. There will be three popup window (widget) on the top of the screen when you are in `train_dolly` notebook. You want to fill in the number 8 in the `num_gpus` window. You don't need to set the `dbfs_output_root` and `local_training_root` widget because the code will detect if these are Null, then they are set by default to `"dolly_training"`.
 
 - Attach the notebook to your GPU cluster, that is, over the top right of your screen, select your cluster. 
