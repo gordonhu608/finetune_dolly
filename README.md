@@ -4,12 +4,12 @@
 ## Getting Started with Training
 
 First of all, Add the `dolly` repo to Databricks. 
-  - move your cursor to the left on Databricks to see Repo. Under Repos click Add Repo, enter `https://github.com/databrickslabs/dolly.git`, then click Create Repo.
+  - move your cursor to the left on Databricks to see Repo. Under Repos click Add Repo, enter `https://github.com/databrickslabs/dolly.git`, then click Create Repo. 
 
 ### V100 GPUs
  <ol>
    <li>To run on V100 instances with 32GB of GPU memory (ex: `p3dn.24xlarge`, note that you must select the GPU runtime first, and unselect "Use Photon", for these instance types to appear), then make the following changes to your added repo, Databricks automatically save them after you make changes:
-  - Modify the deepspeed config file `config/ds_z3_bf16_config.json` to configure optimizer offload. Within the `"zero_optimization"` section, add:
+  * Modify the deepspeed config file `config/ds_z3_bf16_config.json` to configure optimizer offload. Within the `"zero_optimization"` section, add:
     ```
     "offload_optimizer": {
       "device": "cpu",
